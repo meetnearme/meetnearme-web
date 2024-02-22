@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ template "Meta.html" }}
+    <title>Meet Near Me</title>
+  </head>
+  <body class="p-4 macondo-regular" data-theme="cupcake">
+    {{ template "Navbar.html" }}
+    <section id="main-content" class="py-4" hx-get="/events" hx-trigger="load"></section>
+  </body>
+</html>
