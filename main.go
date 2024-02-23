@@ -16,6 +16,7 @@ func main() {
 	config.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type", "Authorization"}
 	r.Use(cors.New(config))
 	r.Static("/static", "./static")
+	r.StaticFile("/favicon.ico", "./static/favicon.ico")
 	r.Use(shouldWrapLayout())
 	r.GET("/", handlers.GetEventsPageContent)
 	r.GET("/events", handlers.GetEventsPageContent)
