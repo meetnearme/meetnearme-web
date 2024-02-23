@@ -1,11 +1,12 @@
 package handlers
 
 import (
-	"net/http"
+	templates "meetnearme-web/templates/components"
 
 	"github.com/gin-gonic/gin"
 )
 
 func GetLoginFormComponent(c *gin.Context) {
-	c.HTML(http.StatusOK, "LoginForm.html", gin.H{})
+	component := templates.LoginFormComponent()
+	component.Render(c.Request.Context(), c.Writer)
 }

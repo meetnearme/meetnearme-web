@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:tw": "npx npx tailwindcss -o ./static/styles.css --minify",
+    "build:tw": "npx tailwindcss -o ./static/styles.css --minify",
     "build:go": "go build -o ./dist/main .",
     "build": "npm run build:tw && npm run build:go",
     "test": "echo \"Error: no test specified\" && exit 1"

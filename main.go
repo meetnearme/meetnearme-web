@@ -15,9 +15,9 @@ func main() {
 	config.AllowMethods = []string{"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"}
 	config.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type", "Authorization"}
 	r.Use(cors.New(config))
-	r.LoadHTMLGlob("./templates/**/*.html")
 	r.Static("/static", "./static")
-	r.GET("/", handlers.GetAppLayout)
+	r.Use(shouldWrapLayout())
+	r.GET("/", handlers.GetEventsPageContent)
 	r.GET("/events", handlers.GetEventsPageContent)
 	r.GET("/account", handlers.GetAccountPageContent)
 	r.GET("/login", handlers.GetLoginPageContent)
@@ -28,4 +28,13 @@ func main() {
 	}
 	r.SetTrustedProxies(nil)
 	r.Run()
+}
+
+func shouldWrapLayout() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		hxRequestHeader := c.Request.Header["Hx-Request"]
+		isHxRequest := hxRequestHeader != nil && hxRequestHeader[0] == "true"
+		c.Set("shouldWrapLayout", !isHxRequest)
+		c.Next()
+	}
 }
