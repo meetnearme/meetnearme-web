@@ -23,7 +23,7 @@ func NavbarComponent() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"navbar bg-primary shadow-xl rounded-box\"><div class=\"navbar-start\"><a class=\"btn btn-ghost text-xl\" hx-get=\"/events\" hx-push-url=\"true\" hx-target=\"#main-content\">Meet Near Me</a></div><div class=\"navbar-end\"><button class=\"btn btn-ghost btn-accent\" hx-get=\"/login\" hx-target=\"#main-content\" hx-push-url=\"true\">Login</button></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"navbar bg-primary shadow-xl rounded-box\"><div class=\"navbar-start\"><a class=\"btn btn-ghost text-xl\" hx-get=\"/\" hx-push-url=\"true\" hx-target=\"#main-content\">Meet Near Me</a></div><div class=\"navbar-end\"><button class=\"btn btn-ghost btn-accent\" hx-get=\"/login\" hx-target=\"#main-content\" hx-push-url=\"true\">Login</button></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
